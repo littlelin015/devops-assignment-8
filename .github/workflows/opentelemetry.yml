@@ -1,0 +1,26 @@
+name: Assignment 8 - OpenTelemetry
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  opentelemetry-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install OpenTelemetry SDK
+        run: pip install opentelemetry-sdk
+
+      - name: Run OpenTelemetry Demo
+        run: python main.py
